@@ -35,11 +35,8 @@ random text
 </p>
 <nav id="sitenav">
 <ul>
-<li class="current"><a href="index.html">Home</a></li>
-<li><a href="about.html">Link 1</a></li>
-<li><a href="styles.html">Link 2</a></li>
-<li><a href="contact.html">Link 3</a></li>
-
+	<li><a href="<?php echo findBlogInfo('base_uri') ?>">Home</a></li>
+	<?#php showPages() ?>
 </ul>
 
 </nav>
@@ -69,14 +66,7 @@ random text
 <!-- start menu -->
 <ul class="solidblockmenu">
    <li class='active '><a href='index.html'><span>Home</span></a></li>
-   <?php $pages = new Page() ?>
-   <?php foreach ($pages->findAll() as $page) : ?>
-   <li>
-	<a href='?page_id=<?php echo $page->page_id ?>'>
-	<span><?php echo $page->title ?></span>
-	</a>
-    </li>
-   <?php endforeach; ?>
+   <?php showPages() ?>
 </ul>
 <!-- end menu -->
 
@@ -87,7 +77,6 @@ random text
 	<div id="leftcontainer">
 	<h2 class="mainheading">Latest from the blog</h2>
 	<!-- loop for articles -->
-	
 	<?php $articles = new Post(); ?>
 	<?php foreach ($articles->findAll() as $article) : ?>
 	<article class="post">
@@ -99,6 +88,7 @@ random text
 	</article>
 	<?php endforeach; ?>
 	<!-- end loop article -->
+	<!--
 	<div class="pagenavi">
 		<span class="current">1</span>
 		<a href="/page/2/" title="2">2</a>
@@ -112,6 +102,7 @@ random text
 		<span class="extend">...</span>
 		<a href="/page/27/" title="Last &raquo;">Last &raquo;</a>
 	</div>
+	-->
 	<!-- end paging -->
     <div class="clear"></div>
 </div>

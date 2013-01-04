@@ -7,6 +7,7 @@ class  CommonQuery extends SimpleQueryBuilder {
 	}
 	
 	function findAll() {
+		$this->init();
 		return $this->get()->result();
 	}
 	

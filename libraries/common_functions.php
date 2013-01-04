@@ -34,3 +34,13 @@ function findBlogInfo($infoType) {
         return "bla--"  ; 
     }
 }
+
+function showPages() {
+    $pageObj = Page::getInstance();
+    $pages = $pageObj->findAll();
+    foreach ($pages as $page ) {
+        echo "
+            <li><a href=\"#\">{$page->title}</a></li>
+        ";
+    }
+}

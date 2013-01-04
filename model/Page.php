@@ -1,5 +1,16 @@
 <?php
 class Page extends CommonQuery {
+    
+    private static $instace;
+    
+    public static function getInstance() {
+	if ( !self::$instace ) {
+	    self::$instace = new Page();
+	}
+	
+	return self::$instace;
+    }
+    
     function __construct(){
         parent::CommonQuery('pages');
     }
