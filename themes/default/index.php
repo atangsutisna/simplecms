@@ -36,7 +36,7 @@ random text
 <nav id="sitenav">
 <ul>
 	<li><a href="<?php echo findBlogInfo('base_uri') ?>">Home</a></li>
-	<?#php showPages() ?>
+	<?php showPages() ?>
 </ul>
 
 </nav>
@@ -65,7 +65,7 @@ random text
 
 <!-- start menu -->
 <ul class="solidblockmenu">
-   <li class='active '><a href='index.html'><span>Home</span></a></li>
+   <li class='active '><a href='index.php'><span>Home</span></a></li>
    <?php showPages() ?>
 </ul>
 <!-- end menu -->
@@ -77,16 +77,7 @@ random text
 	<div id="leftcontainer">
 	<h2 class="mainheading">Latest from the blog</h2>
 	<!-- loop for articles -->
-	<?php $articles = new Post(); ?>
-	<?php foreach ($articles->findAll() as $article) : ?>
-	<article class="post">
-	<header>
-		<h3><?php echo $article->title ?></h3>
-		<p class="postinfo">Published on <time><?php echo date("F j, Y", strtotime($article->date)) ?></time></p>
-	</header>
-	<p><?php echo $article->text ?></p>
-	</article>
-	<?php endforeach; ?>
+	<?php include "main.php" ?>
 	<!-- end loop article -->
 	<!--
 	<div class="pagenavi">

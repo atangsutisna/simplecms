@@ -1,5 +1,15 @@
 <?php
 class Post extends CommonQuery {
+    private static $instance;
+    
+    public static function getInstance() {
+        if ( !self::$instance ) {
+            self::$instance = new Post();
+        }
+        
+        return self::$instance;
+    }
+    
     function __construct(){
         parent::CommonQuery('articles');
     }

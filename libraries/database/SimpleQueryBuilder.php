@@ -41,7 +41,9 @@ class SimpleQueryBuilder {
 	public function query($query_string)
 	{
 		if ( !empty($query_string)) {
-			return new QueryResult($query_string);	
+			$query = new QueryResult($query_string);
+			$this->init();
+			return $query;
 		}
 		else {
 			return;
