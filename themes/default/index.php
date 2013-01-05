@@ -75,7 +75,6 @@ random text
 <div id="contents">
 <section id="main">
 	<div id="leftcontainer">
-	<h2 class="mainheading">Latest from the blog</h2>
 	<!-- loop for articles -->
 	<?php include "main.php" ?>
 	<!-- end loop article -->
@@ -102,12 +101,14 @@ random text
 
 <section id="sidebar">
 <div id="sidebarwrap">
+<!--
 <h2>About</h2>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum hendrerit magna in risus tincidunt rhoncus. Ut eu urna risus, at molestie tellus. Aenean vitae lobortis odio. <a href="#">Read More</a></p>
 
 <h2>Random heading</h2>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum hendrerit magna in risus tincidunt rhoncus. Ut eu urna risus, at molestie tellus. Aenean vitae lobortis odio. <a href="#">Read More</a></p>
-
+-->
+<?php showActivatePoll() ?>
 </div>
 </section>
 <!-- end sidebar -->

@@ -55,7 +55,8 @@ function showArticles() {
 function showArticle($article_id) {
     $articleObj = Post::getInstance();
     $article = $articleObj->findBy('id', $article_id);
-    toEntryArticle($article);
+    toEntryArticle($article, false);
+    //var_dump(get_object_vars($article));
 }
 
 function showPage($page_id) {
@@ -78,7 +79,13 @@ function showPage($page_id) {
         ";
 }
 
-function toEntryArticle($article){
+function toEntryArticle($article, $truncate = true ){
+    $article_text = $article->text;
+    
+    if ( $truncate ) {
+        $article_text = truncate($article->text, 255);    
+    }
+    
     echo "
             <article class=\"post\">
                 <header>
@@ -92,8 +99,36 @@ function toEntryArticle($article){
                     </p>
                 </header>
                 <p>
-                    {$article->text}
+                    {$article_text}
                 </p>
             </article>
         ";
+}
+
+function showActivatePoll() {
+    $pollObj = Poll::getInstance();
+    $poll = $pollObj->findActivatePoll();
+    echo "<form method=\"post\" action=\"?action=create_poll\">";
+    echo "<input type=\"hidden\" name=\"poll_id\" value=\"{$poll->id}\">";
+    echo "<h2>Poll</h2>";
+    echo "<p>
+        {$poll->question}<br><br>
+        <input type=\"radio\" name=\"answer_poll\" value=\"{$poll->answer1}\"> {$poll->answer1} <br/>
+        <input type=\"radio\" name=\"answer_poll\" value=\"{$poll->answer2}\"> {$poll->answer2} <br/>
+        <input type=\"radio\" name=\"answer_poll\" value=\"{$poll->answer3}\"> {$poll->answer3} <br/><br/>
+        <input type=\"submit\" value=\"Sumbmit Poll\">
+    </p>";
+}
+
+function create_poll() {
+    $pollObj = PollAnswer::getInstance();
+    $data = array(
+                'poll_id' => $_POST['poll_id'],
+                'answer' => $_POST['answer_poll']
+            );
+    $pollObj->add($data);
+}
+
+function truncate($str_texts, $length, $trailing = '...') {
+    return mb_substr($str_texts, 0, $length). $trailing ;
 }

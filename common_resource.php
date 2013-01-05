@@ -14,5 +14,6 @@ require_once(MODEL. 'Post.php');
 require_once(MODEL. 'User.php');
 require_once(MODEL. 'Page.php');
 require_once(MODEL. 'Poll.php');
+require_once(MODEL. 'PollAnswer.php');
 
 DBConnection::getConnection(DB_HOST, DB_NAME, DB_USER, DB_PASS);

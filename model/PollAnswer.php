@@ -1,21 +1,18 @@
 <?php
-class Poll extends CommonQuery {
+class PollAnswer extends CommonQuery {
     private static $instance;
     
     
     public static function getInstance() {
         if ( !self::$instance ) {
-            self::$instance = new Poll();
+            self::$instance = new PollAnswer();
         }
         
         return self::$instance;
     }
     
     function __construct(){
-        parent::CommonQuery('polls');
+        parent::CommonQuery('pollanswers');
     }
     
-    function findActivatePoll() {
-        return $this->findBy('active', 'Yes');
-    }
 }

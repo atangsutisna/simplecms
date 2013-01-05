@@ -5,7 +5,9 @@
 	<?#php include "act_poll.php" ?>
 	<fieldset>
 		<legend>Polls</legend>
-		<a href="new_poll.php" class="btn btn-primary">Create New poll</a>
+		<form action="polls.php" method="post">
+		<a href="new_poll.php" class="btn">Create New poll</a>
+		<input type="submit" name="active_poll" value="Activate Poll" class="btn btn-primary"/>
 		<table class="table table-striped">
 		<thead>
 			<tr>
@@ -13,6 +15,7 @@
 				<th>Answer 1</th>
 				<th>Answer 2</th>
 				<th>Answer 3</th>
+				<th>Active</th>
 			</tr>
 		</thead>
 		<tbody>	
@@ -23,6 +26,11 @@
 			<td><?php echo $poll->answer1 ?> </td>
 			<td><?php echo $poll->answer2 ?> </td>
 			<td><?php echo $poll->answer3 ?> </td>
+			<td>
+				<input type="radio" name="active_poll"
+				       value="<?php echo $poll->id?>"
+				       checked="<?php echo $poll->active == 'Yes' ? true : false ;?>">
+			</td>
 			<td>
 				<a href="edit_poll.php?act=edit&id=<?php echo $poll->id?>">
 					edit
@@ -36,6 +44,7 @@
 		<?php endforeach; ?>
 		</tbody>
 		</table>
+		</form>
 	</fieldset>
 	</div>
 </div>
