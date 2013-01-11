@@ -9,6 +9,7 @@ if (isset($_GET['act'])) {
                 $data = array(
                     'title' => $_POST['title'],
                     'content' => $_POST['textVal'],
+                    'language' => $_POST['lang'],
                     'authorid' => getCurrentUser($currentUser)->authorid,
                     'created_at' => date('Y-m-d'),
                     'updated_at' => date('Y-m-d'),
@@ -39,6 +40,7 @@ if (isset($_GET['act'])) {
                 $data = array(
                     'title' => $_POST['title'],
                     'content' => $_POST['textVal'],
+                    'language' => $_POST['lang'],
                     'authorid' => getCurrentUser($currentUser)->authorid,
                     'updated_at' => date('Y-m-d')
                 );

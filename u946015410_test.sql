@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 23, 2012 at 01:22 AM
+-- Generation Time: Jan 05, 2013 at 05:54 PM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -91,16 +91,18 @@ INSERT INTO `pages` (`page_id`, `title`, `content`, `authorid`, `created_at`, `u
 --
 
 CREATE TABLE IF NOT EXISTS `pollanswers` (
-  `pollid` int(11) NOT NULL,
-  `answer` varchar(100) CHARACTER SET cp1250 COLLATE cp1250_czech_cs NOT NULL,
-  `votes` int(11) NOT NULL,
-  KEY `pollid` (`pollid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+  `poll_answer_id` int(11) NOT NULL AUTO_INCREMENT,
+  `poll_id` int(11) NOT NULL,
+  `answer` varchar(25) NOT NULL,
+  PRIMARY KEY (`poll_answer_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `pollanswers`
 --
 
+INSERT INTO `pollanswers` (`poll_answer_id`, `poll_id`, `answer`) VALUES
+(1, 1, 'Nasi goreng');
 
 -- --------------------------------------------------------
 
@@ -110,14 +112,21 @@ CREATE TABLE IF NOT EXISTS `pollanswers` (
 
 CREATE TABLE IF NOT EXISTS `polls` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `question` varchar(100) CHARACTER SET cp1250 COLLATE cp1250_czech_cs NOT NULL,
+  `question` varchar(40) COLLATE latin1_general_ci NOT NULL,
+  `answer1` varchar(25) COLLATE latin1_general_ci NOT NULL,
+  `answer2` varchar(25) COLLATE latin1_general_ci NOT NULL,
+  `answer3` varchar(25) COLLATE latin1_general_ci NOT NULL,
+  `active` enum('No','Yes') COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `polls`
 --
 
+INSERT INTO `polls` (`id`, `question`, `answer1`, `answer2`, `answer3`, `active`) VALUES
+(1, 'Makan apa ya enaknya malam ini ?', 'Nasi goreng', 'Ikan Bakar', 'Warteg X', 'Yes'),
+(2, 'Bahasa Pemograman Apa yang Kamu Suka', 'PHP', 'Javascript', 'Java', 'No');
 
 -- --------------------------------------------------------
 

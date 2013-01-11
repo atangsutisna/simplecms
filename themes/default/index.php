@@ -31,7 +31,15 @@
 <div id="bodywrap">
 <section id="pagetop">
 <p id="siteinfo">
-random text
+	<a href="?lang=english">
+		<img src="<?php echo findBlogInfo('base_uri') ?>themes/default/images/english_flag.png" title="english version">
+	</a>
+	<a href="?lang=itali">
+		<img src="<?php echo findBlogInfo('base_uri') ?>themes/default/images/itali_flag.png" title="english version">
+	</a>
+	<a href="?lang=czech">
+		<img src="<?php echo findBlogInfo('base_uri') ?>themes/default/images/czech_republic_flag.png" title="english version">
+	</a>
 </p>
 <nav id="sitenav">
 <ul>

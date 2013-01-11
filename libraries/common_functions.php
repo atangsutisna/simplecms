@@ -37,11 +37,19 @@ function findBlogInfo($infoType) {
 
 function showPages() {
     $pageObj = Page::getInstance();
-    $pages = $pageObj->findAll();
-    foreach ($pages as $page ) {
+    $pages = $pageObj->findBy('language', 'italia');
+    if (is_array($pages)) {
+        foreach ($pages as $page ) {
+            echo "
+                <li><a href=\"?page_id={$page->page_id}\">{$page->title}</a></li>
+            ";
+        }   
+    }
+    else {
+        $page = $pages;
         echo "
-            <li><a href=\"?page_id={$page->page_id}\">{$page->title}</a></li>
-        ";
+                <li><a href=\"?page_id={$page->page_id}\">{$page->title}</a></li>
+            ";
     }
 }
 

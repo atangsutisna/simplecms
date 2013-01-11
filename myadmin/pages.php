@@ -11,6 +11,7 @@
 			<tr>
 				<th>Title</th>
 				<th>Author</th>
+				<th>Version</th>
 				<th>Created</th>
 				<th>Last update</th>
                                 <th>Action</th>
@@ -25,6 +26,7 @@
 		<tr>
 			<td><?php echo $page->title ?></td>
 			<td><?php echo $page->username ?> </td>
+			<td><?php echo $page->language ?> </td>
 			<td><?php echo $page->created_at ?></td>
                         <td><?php echo $page->updated_at ?></td>
 			<td>

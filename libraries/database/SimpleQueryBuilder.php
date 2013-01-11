@@ -73,13 +73,12 @@ class SimpleQueryBuilder {
 	}
 	
 	public function from($tableName = '') {
-		$this->_query .= " FROM ";
+		$this->_from = " FROM ";
 		if (!empty($tableName) || is_array($tableName)) {
-			$this->_query .= $this->_parseArrToStr($tableName);
+			$this->_from .= $this->_parseArrToStr($tableName);
 		}
-		else {
-			$this->_query .= $this->_tableName;
-		}
+		
+		$this->_from .= $this->_tableName;
 	}
 	
 	public function limit($limit = 10, $offset = 0)
