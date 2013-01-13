@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 05, 2013 at 05:54 PM
+-- Generation Time: Jan 13, 2013 at 06:39 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -27,20 +27,22 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE IF NOT EXISTS `articles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `language` enum('english','italia','czech') COLLATE latin1_general_ci NOT NULL,
   `title` varchar(80) CHARACTER SET cp1250 COLLATE cp1250_czech_cs NOT NULL,
   `text` text CHARACTER SET cp1250 COLLATE cp1250_czech_cs NOT NULL,
   `authorid` int(11) NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `articles`
 --
 
-INSERT INTO `articles` (`id`, `title`, `text`, `authorid`, `date`) VALUES
-(11, 'Article Title 1', '                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel arcu velit. Cras nec tempus metus. Suspendisse ut diam ut metus lobortis fermentum id in risus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus viverra nibh a velit iaculis egestas. Proin in dapibus lacus. Donec id vulputate nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut non justo eu quam pellentesque dignissim ac vitae nulla. In dui justo, vulputate id sagittis ut, sollicitudin nec risus. Sed tincidunt gravida lorem in ullamcorper. Donec laoreet tincidunt arcu, eu accumsan sapien condimentum nec. Cras vel nisi ut libero aliquet tincidunt id nec diam.\r\n\r\nPellentesque elit orci, egestas quis tempus ac, auctor in risus. Vestibulum non ipsum a risus malesuada ullamcorper. Cras sollicitudin ultricies justo vulputate tempor. In id sem odio, pellentesque facilisis elit. Pellentesque id nisi neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vel nibh quam, eu imperdiet felis. Sed odio erat, luctus a varius sit amet, vehicula a dolor. Sed id dui purus, id fringilla quam. Duis at tortor eget eros consectetur vestibulum non ac magna.                		', 1, '2012-12-22'),
-(12, 'Article Title 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel arcu velit. Cras nec tempus metus. Suspendisse ut diam ut metus lobortis fermentum id in risus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus viverra nibh a velit iaculis egestas. Proin in dapibus lacus. Donec id vulputate nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut non justo eu quam pellentesque dignissim ac vitae nulla. In dui justo, vulputate id sagittis ut, sollicitudin nec risus. Sed tincidunt gravida lorem in ullamcorper. Donec laoreet tincidunt arcu, eu accumsan sapien condimentum nec. Cras vel nisi ut libero aliquet tincidunt id nec diam.\r\n\r\nPellentesque elit orci, egestas quis tempus ac, auctor in risus. Vestibulum non ipsum a risus malesuada ullamcorper. Cras sollicitudin ultricies justo vulputate tempor. In id sem odio, pellentesque facilisis elit. Pellentesque id nisi neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vel nibh quam, eu imperdiet felis. Sed odio erat, luctus a varius sit amet, vehicula a dolor. Sed id dui purus, id fringilla quam. Duis at tortor eget eros consectetur vestibulum non ac magna.                ', 1, '2012-12-22');
+INSERT INTO `articles` (`id`, `language`, `title`, `text`, `authorid`, `date`) VALUES
+(11, 'english', 'Article Title 1', '                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel arcu velit. Cras nec tempus metus. Suspendisse ut diam ut metus lobortis fermentum id in risus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus viverra nibh a velit iaculis egestas. Proin in dapibus lacus. Donec id vulputate nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut non justo eu quam pellentesque dignissim ac vitae nulla. In dui justo, vulputate id sagittis ut, sollicitudin nec risus. Sed tincidunt gravida lorem in ullamcorper. Donec laoreet tincidunt arcu, eu accumsan sapien condimentum nec. Cras vel nisi ut libero aliquet tincidunt id nec diam.\r\n\r\nPellentesque elit orci, egestas quis tempus ac, auctor in risus. Vestibulum non ipsum a risus malesuada ullamcorper. Cras sollicitudin ultricies justo vulputate tempor. In id sem odio, pellentesque facilisis elit. Pellentesque id nisi neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vel nibh quam, eu imperdiet felis. Sed odio erat, luctus a varius sit amet, vehicula a dolor. Sed id dui purus, id fringilla quam. Duis at tortor eget eros consectetur vestibulum non ac magna.                				', 1, '2013-01-12'),
+(12, 'english', 'English Article 1', '                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel arcu velit. Cras nec tempus metus. Suspendisse ut diam ut metus lobortis fermentum id in risus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus viverra nibh a velit iaculis egestas. Proin in dapibus lacus. Donec id vulputate nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut non justo eu quam pellentesque dignissim ac vitae nulla. In dui justo, vulputate id sagittis ut, sollicitudin nec risus. Sed tincidunt gravida lorem in ullamcorper. Donec laoreet tincidunt arcu, eu accumsan sapien condimentum nec. Cras vel nisi ut libero aliquet tincidunt id nec diam.\r\n\r\nPellentesque elit orci, egestas quis tempus ac, auctor in risus. Vestibulum non ipsum a risus malesuada ullamcorper. Cras sollicitudin ultricies justo vulputate tempor. In id sem odio, pellentesque facilisis elit. Pellentesque id nisi neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vel nibh quam, eu imperdiet felis. Sed odio erat, luctus a varius sit amet, vehicula a dolor. Sed id dui purus, id fringilla quam. Duis at tortor eget eros consectetur vestibulum non ac magna.                								', 1, '2013-01-13'),
+(14, 'italia', 'Italia Article ', 'fasdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf                ', 1, '2013-01-13');
 
 -- --------------------------------------------------------
 
@@ -69,20 +71,22 @@ CREATE TABLE IF NOT EXISTS `menu` (
 
 CREATE TABLE IF NOT EXISTS `pages` (
   `page_id` int(11) NOT NULL AUTO_INCREMENT,
+  `language` enum('english','italia','czech') NOT NULL,
   `title` varchar(100) NOT NULL,
   `content` text NOT NULL,
   `authorid` int(11) NOT NULL,
   `created_at` date NOT NULL,
   `updated_at` date NOT NULL,
   PRIMARY KEY (`page_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `pages`
 --
 
-INSERT INTO `pages` (`page_id`, `title`, `content`, `authorid`, `created_at`, `updated_at`) VALUES
-(1, 'About Me tea', 'Hi, this page will descript about me		', 1, '2012-12-22', '2012-12-22');
+INSERT INTO `pages` (`page_id`, `language`, `title`, `content`, `authorid`, `created_at`, `updated_at`) VALUES
+(1, 'english', 'About Me tea', 'Hi, this page will descript about me		', 1, '2012-12-22', '2012-12-22'),
+(2, 'italia', 'Informazioni su di mi', '                fadsf asdfasdf asdf asdf asdfasdf                		', 1, '2013-01-11', '2013-01-11');
 
 -- --------------------------------------------------------
 
@@ -112,21 +116,24 @@ INSERT INTO `pollanswers` (`poll_answer_id`, `poll_id`, `answer`) VALUES
 
 CREATE TABLE IF NOT EXISTS `polls` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `language` enum('english','italia','czech') COLLATE latin1_general_ci NOT NULL,
   `question` varchar(40) COLLATE latin1_general_ci NOT NULL,
   `answer1` varchar(25) COLLATE latin1_general_ci NOT NULL,
   `answer2` varchar(25) COLLATE latin1_general_ci NOT NULL,
   `answer3` varchar(25) COLLATE latin1_general_ci NOT NULL,
   `active` enum('No','Yes') COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `polls`
 --
 
-INSERT INTO `polls` (`id`, `question`, `answer1`, `answer2`, `answer3`, `active`) VALUES
-(1, 'Makan apa ya enaknya malam ini ?', 'Nasi goreng', 'Ikan Bakar', 'Warteg X', 'Yes'),
-(2, 'Bahasa Pemograman Apa yang Kamu Suka', 'PHP', 'Javascript', 'Java', 'No');
+INSERT INTO `polls` (`id`, `language`, `question`, `answer1`, `answer2`, `answer3`, `active`) VALUES
+(1, 'english', 'Makan apa ya enaknya malam ini ?', 'Nasi goreng', 'Ikan Bakar', 'Warteg X', 'Yes'),
+(2, 'english', 'Bahasa Pemograman Apa yang Kamu Suka', 'PHP', 'Javascript', 'Java', 'No'),
+(3, 'italia', 'italian question', 'aaa', 'bbb', 'ccc', 'No'),
+(4, 'italia', 'italian question 2', 'fasdfad', 'fasdfasdf', 'afsdfasd fadf', 'Yes');
 
 -- --------------------------------------------------------
 
