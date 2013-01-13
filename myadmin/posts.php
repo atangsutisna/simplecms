@@ -11,6 +11,7 @@
 			<tr>
 				<th>Title</th>
 				<th>Author</th>
+				<th>Version</th>
 				<th>Created</th>
 				<th>Action</th>
 			</tr>
@@ -21,6 +22,7 @@
 		<tr>
 			<td><?php echo $post->title ?></td>
 			<td><?php echo $post->username ?> </td>
+			<td><?php echo $post->language ?> </td>
 			<td><?php echo $post->date ?></td>
 			<td>
 				<a href="edit_post.php?act=edit&id=<?php echo $post->id?>">

@@ -36,8 +36,9 @@ function findBlogInfo($infoType) {
 }
 
 function showPages() {
+    global $lang;
     $pageObj = Page::getInstance();
-    $pages = $pageObj->findBy('language', 'italia');
+    $pages = $pageObj->findBy('language', $lang);
     if (is_array($pages)) {
         foreach ($pages as $page ) {
             echo "
@@ -54,9 +55,19 @@ function showPages() {
 }
 
 function showArticles() {
+    global $lang;
     $articles = Post::getInstance();
-    foreach ($articles->findAll() as $article) {
-        toEntryArticle($article);
+    $results = $articles->findBy('language', $lang);
+    if (is_array($results)) {
+        foreach ($results as $article) {
+            toEntryArticle($article);
+        }   
+    }
+    else if ( !empty($results)){
+        toEntryArticle($results);
+    }
+    else {
+        echo "No Content";
     }
 }
 
@@ -114,18 +125,24 @@ function toEntryArticle($article, $truncate = true ){
 }
 
 function showActivatePoll() {
+    global $lang;
     $pollObj = Poll::getInstance();
-    $poll = $pollObj->findActivatePoll();
-    echo "<form method=\"post\" action=\"?action=create_poll\">";
-    echo "<input type=\"hidden\" name=\"poll_id\" value=\"{$poll->id}\">";
-    echo "<h2>Poll</h2>";
-    echo "<p>
-        {$poll->question}<br><br>
-        <input type=\"radio\" name=\"answer_poll\" value=\"{$poll->answer1}\"> {$poll->answer1} <br/>
-        <input type=\"radio\" name=\"answer_poll\" value=\"{$poll->answer2}\"> {$poll->answer2} <br/>
-        <input type=\"radio\" name=\"answer_poll\" value=\"{$poll->answer3}\"> {$poll->answer3} <br/><br/>
-        <input type=\"submit\" value=\"Sumbmit Poll\">
-    </p>";
+    $poll = $pollObj->findActivatePoll($lang);
+    if (!empty($poll)) {
+        echo "<form method=\"post\" action=\"?action=create_poll\">";
+        echo "<input type=\"hidden\" name=\"poll_id\" value=\"{$poll->id}\">";
+        echo "<h2>Poll</h2>";
+        echo "<p>
+            {$poll->question}<br><br>
+            <input type=\"radio\" name=\"answer_poll\" value=\"{$poll->answer1}\"> {$poll->answer1} <br/>
+            <input type=\"radio\" name=\"answer_poll\" value=\"{$poll->answer2}\"> {$poll->answer2} <br/>
+            <input type=\"radio\" name=\"answer_poll\" value=\"{$poll->answer3}\"> {$poll->answer3} <br/><br/>
+            <input type=\"submit\" value=\"Sumbmit Poll\">
+        </p>";
+    }
+    else {
+        echo "No Content";
+    }
 }
 
 function create_poll() {

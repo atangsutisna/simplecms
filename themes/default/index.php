@@ -1,4 +1,3 @@
-<?php echo __FILE__ ?>
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -34,7 +33,7 @@
 	<a href="?lang=english">
 		<img src="<?php echo findBlogInfo('base_uri') ?>themes/default/images/english_flag.png" title="english version">
 	</a>
-	<a href="?lang=itali">
+	<a href="?lang=italia">
 		<img src="<?php echo findBlogInfo('base_uri') ?>themes/default/images/itali_flag.png" title="english version">
 	</a>
 	<a href="?lang=czech">

@@ -15,7 +15,15 @@ class Poll extends CommonQuery {
         parent::CommonQuery('polls');
     }
     
-    function findActivatePoll() {
-        return $this->findBy('active', 'Yes');
+    function findActivatePoll($lang = '') {
+        $query = $this->query("select * from polls where active = 'Yes' and language = '{$lang}'");
+        return $query->singleResult();
+    }
+    
+    function findByLang($lang) {
+        $this->where(array('language' => $lang));
+	$query = $this->get();
+        
+        return $query->result();
     }
 }

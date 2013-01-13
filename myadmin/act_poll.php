@@ -9,7 +9,8 @@ if (isset($_GET['act'])) {
                     'question' => $_POST['question'],
                     'answer1' => $_POST['answer1'],
                     'answer2' => $_POST['answer2'],
-                    'answer3' => $_POST['answer3']
+                    'answer3' => $_POST['answer3'],
+                    'language' => $_POST['lang']
                 );
                 $createStatus = $pollObj->add($data);
             }
@@ -38,7 +39,8 @@ if (isset($_GET['act'])) {
                     'question' => $_POST['question'],
                     'answer1' => $_POST['answer1'],
                     'answer2' => $_POST['answer2'],
-                    'answer3' => $_POST['answer3']
+                    'answer3' => $_POST['answer3'],
+                    'language' => $_POST['lang']
                 );
                 
                 $poll_id = $_POST['poll_id'];
@@ -46,6 +48,12 @@ if (isset($_GET['act'])) {
                 
                 $poll = $pollObj->findBy('id', $poll_id);
             }
+            echo $updateStatus ? info("Poll with ID \"$poll_id\" has been updated") : error("Poll with ID \"$poll_id\" cannot be updated");
+            break;
+        case "act_poll" :
+            $poll_id = $_POST['active_poll'];
+            $updateNo = $pollObj->query("update polls set active = 'No'");
+            $updateStatus = $pollObj->update($poll_id, array('active' => 'Yes'));
             echo $updateStatus ? info("Poll with ID \"$poll_id\" has been updated") : error("Poll with ID \"$poll_id\" cannot be updated");
             break;
     }

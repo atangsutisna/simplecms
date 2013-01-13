@@ -20,6 +20,12 @@ include('header.php');
 		<textarea rows="3" class="required"
                           name="textVal" id="textVal" style="width: 507px; height: 82px;">
                 </textarea>
+		<label for="lang">Version</label>
+		<select name="lang">
+		    <option value="english">English</option>
+		    <option value="italia">Italia</option>
+		    <option value="czech">Czech</option>
+		</select>
 		<div>
 			<input type="submit" class="btn btn-primary" value="Create post"
                                class="btn btn-primary"/>

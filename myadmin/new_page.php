@@ -20,7 +20,7 @@ include('header.php');
 		<textarea rows="3" class="required"
                           name="textVal" id="textVal" style="width: 507px; height: 82px;">
                 </textarea>
-		<label for="lang">select language</label>
+		<label for="lang">Version</label>
 		<select name="lang">
 		    <option value="english">English</option>
 		    <option value="italia">Italia</option>

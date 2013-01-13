@@ -22,6 +22,12 @@ include('header.php');
 		<input type="text" name="answer2" class="required" id="answer2">
                 <label>Answer 3</label>
 		<input type="text" name="answer3" class="required" id="answer3">
+		<label>Version</label>
+		<select name="lang" id="lang">
+			<option value="english">English</option>
+			<option value="italia">Italia</option>
+			<option value="czech">Czech</option>
+		</select>
 		<div>
 			<input type="submit" class="btn btn-primary" value="Create poll"
                                class="btn btn-primary"/>

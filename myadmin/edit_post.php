@@ -22,6 +22,18 @@
                           name="textVal" id="textVal" style="width: 507px; height: 82px;">
                 <?php echo $article->text ?>
 		</textarea>
+		<label for="lang">select language</label>
+		<select name="lang">
+		    <option value="english" <?php echo $article->language == 'english' ? "selected=\"selected\"" : ""?>>
+			English
+		    </option>
+		    <option value="italia" <?php echo $article->language == 'italia' ? "selected=\"selected\"" : ""?>>
+			Italia
+		    </option>
+		    <option value="czech" <?php echo $article->language == 'czech' ? "selected=\"selected\"" : ""?>>
+			Czech
+		    </option>
+		</select>
 		<div>
 			<input type="submit" class="btn btn-primary" value="Update post"
                                class="btn btn-primary"/>
